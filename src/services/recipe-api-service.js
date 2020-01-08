@@ -3,13 +3,15 @@ import config from '../config';
 
 const RecipeApiService = {
     getRecipes() {
-        return fetch(`${TokenService.getAuthToken()}`, {
+        return fetch(`${config.RECIPE_API_ENDPOINT}`, {
             headers: {
                 'authorization': `basic ${TokenService.getAuthToken()}`
             }
         })
         .then(res => {
+            return(
             (!res.ok)? res.json().then(e => Promise.reject(e)): res.json()
+            )
         })
     },
     getRecipe(recipeId) {
@@ -36,8 +38,13 @@ const RecipeApiService = {
             (!res.ok)? res.json().then(e => Promise.reject(e)): res.json() 
         })
     },
-    deleteRecipe(id) {
-        //code to delete
+    deleteRecipe(recipeId) {
+        return fetch (`${config.RECIPE_API_ENDPOINT}/${recipeId}`, {
+            method: 'DELETE',
+        })
+    },
+    patchRecipe(id) {
+        //code to update
     }
 }
 

@@ -1,16 +1,22 @@
-import React, { Component } from 'react'
-import RecipeApiService from '../services/recipe-api-service'
-import Recipe from '../components/Recipe/Recipe'
-import RecipeListContext from '../contexts/RecipeListContext'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import RecipeApiService from '../services/recipe-api-service';
+import Recipe from '../components/Recipe/Recipe';
+import RecipeListContext from '../contexts/RecipeListContext';
+import LoggedInHeader from '../components/Logged-In Header/Logged-In_Header';
 
 export default class RecipeList extends Component {
     static contextType = RecipeListContext
 
-    componentDidMount() {
+    updateRecipes = () => {
         this.context.clearError()
         RecipeApiService.getRecipes()
           .then(this.context.setRecipeList)
           .catch(this.context.setError)
+    }
+
+    componentDidMount() {
+        this.updateRecipes()
     }
 
     renderRecipes() {
@@ -19,6 +25,7 @@ export default class RecipeList extends Component {
             <Recipe
               key={recipe.id}
               recipe={recipe}
+              updateRecipes={this.updateRecipes}
             />
         )
     }
@@ -37,10 +44,16 @@ export default class RecipeList extends Component {
     render() {
         const { error } =this.context
         return (
-            /*<this.recipeSection list className='RecipeList'>
-                {error ? <p>There was an error, try again</p> : this.renderRecipes()}
-            </this.recipeSection>*/
-            this.renderRecipes()
+            <div>
+                <LoggedInHeader/>
+                <h2>My Recipes</h2>
+                <this.recipeSection list className='RecipeList'>
+                    {error ? <p>There was an error, try again</p> : this.renderRecipes()}
+                </this.recipeSection>
+                <Link to='/recipe-form'>
+                    <button>Add Recipe</button>
+                </Link>
+            </div>
         )
     }
 }

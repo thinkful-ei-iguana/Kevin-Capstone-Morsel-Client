@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import TokenService from '../../services/token-service';
 
-export default class Header extends Component {
+export default class LoggedInHeader extends Component {
     handleLogoutClick = () => {
         TokenService.clearAuthToken()
     }
@@ -19,28 +19,19 @@ export default class Header extends Component {
         )
     }
 
-    renderLoginLink() {
-        return (
-          <div className='Header__not-logged-in'>
-            <Link
-              to='/login'>
-              Login
-            </Link>
-            <Link
-              to='/register'>
-              Register
-            </Link>
-          </div>
-        )
-      }
-
     render() {
         return (
             <nav className='Header'>
-                <Link to='/'>
+                <Link to='/menu'>
                     <h1>Morsel</h1> 
                 </Link>
-                {TokenService.hasAuthToken()?this.renderLogoutLink():this.renderLoginLink()}
+                <Link to='/recipes'>
+                    <p>My Recipes</p>
+                </Link>
+                <Link to='/menu'>
+                    <p>My Menu</p>
+                </Link>
+                {this.renderLogoutLink()}
             </nav>
         )
     }
