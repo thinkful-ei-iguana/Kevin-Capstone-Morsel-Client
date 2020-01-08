@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import RecipeApiService from '../../services/recipe-api-service';
 
 export default class Recipe extends Component {
@@ -22,7 +23,12 @@ export default class Recipe extends Component {
                    >
                     Delete Recipe
                     </button>
-                    <button>Update Recipe</button>
+                    <Link to={{
+                        pathname: `/recipe-update/${recipe.id}`,
+                        recipe: recipe,
+                    }}>
+                        <button>Update Recipe</button>
+                    </Link>
                </div>
        )
     }

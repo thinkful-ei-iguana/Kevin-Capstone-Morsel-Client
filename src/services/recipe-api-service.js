@@ -43,8 +43,19 @@ const RecipeApiService = {
             method: 'DELETE',
         })
     },
-    patchRecipe(id) {
-        //code to update
+    patchRecipe(recipeId) {
+        return fetch(`${config.RECIPE_API_ENDPOINT}/${recipeId}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify({
+                //something
+            }),
+        })
+        .then(res => {
+            (!res.ok)? res.json().then(e => Promise.reject(e)): res.json()
+        })
     }
 }
 

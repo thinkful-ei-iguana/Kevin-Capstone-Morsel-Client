@@ -5,6 +5,7 @@ import Menu from './components/Menu/Menu';
 import Pantry from './components/Pantry/Pantry';
 import RecipeList from './routes/RecipeList';
 import RecipeForm from './components/Recipe-form/Recipe-form';
+import RecipeUpdate from './components/Recipe-Update/RecipeUpdate';
 import ShoppingList from './components/ShoppingList/Shopping-List';
 import Landing from './components/Landing/Landing';
 import NotFound from './components/NotFound/NotFound'
@@ -30,6 +31,7 @@ class App extends Component {
             <Route path={'/menu'} component={Menu}/>
             <Route path={'/pantry'} component={Pantry}/>
             <Route path={'/recipe-form'} component={RecipeForm}/>
+            <Route path={'/recipe-update'} component={RecipeUpdate}/>
             <Route path={'/shopping-list'} component={ShoppingList}/>
             <Route component={NotFound}/>
           </Switch>
