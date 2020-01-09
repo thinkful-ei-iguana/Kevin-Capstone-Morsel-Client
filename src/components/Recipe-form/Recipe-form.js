@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import LoggedInHeader from '../Logged-In Header/Logged-In_Header';
+import LoggedInHeader from '../Logged-In-Header/Logged-In-Header';
 import RecipeApiService from '../../services/recipe-api-service';
-//service post needs to occur on submit
 
 export default class RecipeForm extends Component {
     state = {
@@ -55,6 +54,11 @@ export default class RecipeForm extends Component {
         let postIngredients = this.state.ingredients.toString()
         RecipeApiService.postRecipe(this.state.title, this.state.estimated_time, postIngredients, this.state.directions)
         .then(this.props.history.push('/recipes'))
+    }
+
+    handleCancelClicked = (e) => {
+        e.preventDefault()
+        this.props.history.push('/recipes')
     }
 
     renderIngredientList = () => {
@@ -150,6 +154,12 @@ export default class RecipeForm extends Component {
                             onClick={this.handleFormSubmit}
                         >
                         Submit
+                        </button>
+                        <button
+                            className="cancel"
+                            onClick={this.handleCancelClicked}
+                        >
+                        Cancel
                         </button>
                     </form>
                 </section>

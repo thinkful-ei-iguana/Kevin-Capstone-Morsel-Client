@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import PrivateRoute from './PrivateRoute'
+import PrivateRoute from './PrivateRoute';
 import Menu from './components/Menu/Menu';
 import Pantry from './components/Pantry/Pantry';
-import RecipeList from './routes/RecipeList';
-import RecipeForm from './components/Recipe-form/Recipe-form';
-import RecipeUpdate from './components/Recipe-Update/RecipeUpdate';
-import ShoppingList from './components/ShoppingList/Shopping-List';
+import RecipeList from './components/Recipe-List/Recipe-List';
+import RecipeForm from './components/Recipe-Form/Recipe-Form';
+import RecipeUpdate from './components/Recipe-Update/Recipe-Update';
+import ShoppingList from './components/Shopping-List/Shopping-List';
 import Landing from './components/Landing/Landing';
-import NotFound from './components/NotFound/NotFound'
+import NotFound from './components/Not-Found/Not-Found';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 

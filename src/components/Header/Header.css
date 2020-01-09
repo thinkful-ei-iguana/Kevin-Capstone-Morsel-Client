@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    position: fixed;
+    width: 100%;
+}
+
+h1 {
+    background-color: #006990;
+    color: #ffffff;
+}
+
+.Header__logged-in {
+    display: hidden;
+}
+
+.Header__not-logged-in {
+    display: none;
+}
+
+.button {
+    background-image: url(threelines.png);
+
+}

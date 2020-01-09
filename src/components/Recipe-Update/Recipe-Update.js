@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import LoggedInHeader from '../Logged-In Header/Logged-In_Header';
+import RecipeApiService from '../../services/recipe-api-service';
+import LoggedInHeader from '../Logged-In-Header/Logged-In-Header';
 
 export default class RecipeUpdate extends Component {
     state = {
@@ -25,8 +26,9 @@ export default class RecipeUpdate extends Component {
         this.setState({newIngredients: newIngredients})
     }
 
-    handleFormSubmit = (e) => {
-        e.preventDefault()
+    handleFormSubmit = (id) => {
+        RecipeApiService.patchRecipe(id, this.state.newTitle, this.state.newTime, this.state.newIngredients, this.state.newDirections)
+        this.props.history.push('/recipes')
     }
 
     handleCancelClicked = (e) => {
@@ -34,16 +36,11 @@ export default class RecipeUpdate extends Component {
         this.props.history.push('/recipes')
     }
 
-    componentDidMount() {
-        console.log(this.props)
-    }
-
     render () {
-        const { recipe } = this.props
         return (
             <div>
                 <LoggedInHeader/>
-                <p>Current title: {/*recipe.title*/}</p>
+                <p>Current title: {this.props.location.recipe.title}</p>
                 <form className="update-title">
                     <label
                         htmlFor="new-title"
@@ -59,7 +56,7 @@ export default class RecipeUpdate extends Component {
                         }}
                     />
                 </form>
-                <p>Current prep time: {/*recipe.estimated_time*/}</p>
+                <p>Current prep time: {this.props.location.recipe.estimated_time}</p>
                 <form className="updated-time">
                     <label
                         htmlFor="new-time"
@@ -75,7 +72,7 @@ export default class RecipeUpdate extends Component {
                         }}
                     />
                 </form>
-                <p>Current directions: {/*recipe.directions*/}</p>
+                <p>Current directions: {this.props.location.recipe.directions}</p>
                 <form className="updated-directions">
                     <label
                         htmlFor="new-directions"
@@ -91,7 +88,7 @@ export default class RecipeUpdate extends Component {
                         }}
                     />
                 </form>
-                <p>Current ingredients: {/*recipe.ingredients*/}</p>
+                <p>Current ingredients: {this.props.location.recipe.ingredients}</p>
                 <form>
                     <label
                         htmlFor="new-ingredients"
@@ -107,11 +104,13 @@ export default class RecipeUpdate extends Component {
                         }}
                     />
                 </form>
-                <button>Submit Changes</button>
                 <button
-                    onClick={event => {
-                        this.handleCancelClicked(event.target.value)
-                    }}
+                    onClick={() => this.handleFormSubmit(this.props.location.recipe.id)}
+                >
+                Submit Changes
+                </button>
+                <button
+                    onClick={this.handleCancelClicked}
                 >
                 Cancel
                 </button>

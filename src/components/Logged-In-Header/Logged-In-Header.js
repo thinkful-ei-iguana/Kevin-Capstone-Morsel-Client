@@ -25,12 +25,14 @@ export default class LoggedInHeader extends Component {
                 <Link to='/menu'>
                     <h1>Morsel</h1> 
                 </Link>
-                <Link to='/recipes'>
-                    <p>My Recipes</p>
-                </Link>
-                <Link to='/menu'>
-                    <p>My Menu</p>
-                </Link>
+                <div className='links'>
+                    <Link to='/recipes'>
+                        <p>My Recipes</p>
+                    </Link>
+                    <Link to='/menu'>
+                        <p>My Menu</p>
+                    </Link>
+                </div>
                 {this.renderLogoutLink()}
             </nav>
         )

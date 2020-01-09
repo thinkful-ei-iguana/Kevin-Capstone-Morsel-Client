@@ -11,6 +11,7 @@ export default class Recipe extends Component {
 
     render() {
        const { recipe } = this.props
+       console.log(recipe)
 
        return(
                <div className='recipe'>
@@ -27,7 +28,7 @@ export default class Recipe extends Component {
                         pathname: `/recipe-update/${recipe.id}`,
                         recipe: recipe,
                     }}>
-                        <button>Update Recipe</button>
+                        <button>Edit Recipe</button>
                     </Link>
                </div>
        )

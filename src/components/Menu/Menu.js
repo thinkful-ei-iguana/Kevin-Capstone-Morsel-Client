@@ -1,8 +1,18 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import LoggedInHeader from '../Logged-In Header/Logged-In_Header';
+import RecipeListContext from '../../contexts/RecipeListContext';
+import RecipeApiService from '../../services/recipe-api-service';
+import LoggedInHeader from '../Logged-In-Header/Logged-In-Header';
 
 export default class Menu extends Component {
+    static contextType = RecipeListContext
+
+    updateRecipes = () => {
+        this.context.clearError()
+        RecipeApiService.getRecipes()
+          .then(this.context.setRecipeList)
+          .catch(this.context.setError)
+    }
 
     render() {
         return (
@@ -12,7 +22,7 @@ export default class Menu extends Component {
                     <button>View Shopping List</button>
                 </Link>
                 <div>
-                    <section className="sunday first">
+                    <section className="sunday">
                     <h2>Sunday</h2>
                     <div className="breakfast">
                         <form>

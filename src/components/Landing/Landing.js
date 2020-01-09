@@ -10,7 +10,6 @@ export default class Landing extends Component {
                 <Header/>
                 <section>
                     <header role="banner">
-                        <h1>Morsel</h1>
                         <h2>Meals made easy</h2>
                     </header>
                     <section className="meal-plan">

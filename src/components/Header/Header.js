@@ -1,10 +1,19 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import TokenService from '../../services/token-service';
+import './Header.css';
 
 export default class Header extends Component {
+  state = {
+    shown: false
+  }
+
     handleLogoutClick = () => {
         TokenService.clearAuthToken()
+    }
+
+    handleMenuClick = () => {
+      this.setState({shown: !this.state.shown})
     }
 
     renderLogoutLink() {
@@ -40,6 +49,12 @@ export default class Header extends Component {
                 <Link to='/'>
                     <h1>Morsel</h1> 
                 </Link>
+                <button
+                  onClick={this.handleMenuClick}
+                >
+                Test
+                </button>
+
                 {TokenService.hasAuthToken()?this.renderLogoutLink():this.renderLoginLink()}
             </nav>
         )

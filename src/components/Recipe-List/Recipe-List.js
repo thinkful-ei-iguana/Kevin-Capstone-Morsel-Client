@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import RecipeApiService from '../services/recipe-api-service';
-import Recipe from '../components/Recipe/Recipe';
-import RecipeListContext from '../contexts/RecipeListContext';
-import LoggedInHeader from '../components/Logged-In Header/Logged-In_Header';
+import RecipeApiService from '../../services/recipe-api-service';
+import Recipe from '../Recipe/Recipe';
+import RecipeListContext from '../../contexts/RecipeListContext';
+import LoggedInHeader from '../Logged-In-Header/Logged-In-Header';
 
 export default class RecipeList extends Component {
     static contextType = RecipeListContext
