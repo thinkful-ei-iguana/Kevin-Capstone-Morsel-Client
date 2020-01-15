@@ -6,23 +6,35 @@
 
 nav {
     position: fixed;
-    width: 100%;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #006990;
+}
+
+a {
+    display: inline-block;
 }
 
 h1 {
     background-color: #006990;
     color: #ffffff;
+    margin-left: 2%;
 }
 
 .Header__logged-in {
-    display: hidden;
+    display: none;
 }
 
 .Header__not-logged-in {
     display: none;
 }
 
-.button {
+button {
     background-image: url(threelines.png);
-
+    height: 40px;
+    width: 60px;
+    margin: 2px;
+    margin-right: 18px;
 }

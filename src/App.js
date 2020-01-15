@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import PrivateRoute from './PrivateRoute';
 import Menu from './components/Menu/Menu';
 import Pantry from './components/Pantry/Pantry';
 import RecipeList from './components/Recipe-List/Recipe-List';

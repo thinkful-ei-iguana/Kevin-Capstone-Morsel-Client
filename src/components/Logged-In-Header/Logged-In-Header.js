@@ -25,6 +25,7 @@ export default class LoggedInHeader extends Component {
                 <Link to='/menu'>
                     <h1>Morsel</h1> 
                 </Link>
+                <button>Test</button>
                 <div className='links'>
                     <Link to='/recipes'>
                         <p>My Recipes</p>

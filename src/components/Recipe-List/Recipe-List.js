@@ -4,6 +4,7 @@ import RecipeApiService from '../../services/recipe-api-service';
 import Recipe from '../Recipe/Recipe';
 import RecipeListContext from '../../contexts/RecipeListContext';
 import LoggedInHeader from '../Logged-In-Header/Logged-In-Header';
+import './Recipe-List.css'
 
 export default class RecipeList extends Component {
     static contextType = RecipeListContext
@@ -46,7 +47,7 @@ export default class RecipeList extends Component {
         return (
             <div>
                 <LoggedInHeader/>
-                <h2>My Recipes</h2>
+                <h2 className='my-recipes'>My Recipes</h2>
                 <this.recipeSection list className='RecipeList'>
                     {error ? <p>There was an error, try again</p> : this.renderRecipes()}
                 </this.recipeSection>

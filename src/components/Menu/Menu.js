@@ -6,12 +6,25 @@ import LoggedInHeader from '../Logged-In-Header/Logged-In-Header';
 
 export default class Menu extends Component {
     static contextType = RecipeListContext
+    state = {
+        recipes: null
+    }
 
     updateRecipes = () => {
         this.context.clearError()
         RecipeApiService.getRecipes()
           .then(this.context.setRecipeList)
+          .then(this.setRecipes())
           .catch(this.context.setError)
+    }
+
+    setRecipes() {
+        this.setState({ recipes: this.context.recipeList })
+        console.log(this.context.recipeList)
+    }
+
+    componentDidMount() {
+        this.updateRecipes()
     }
 
     render() {

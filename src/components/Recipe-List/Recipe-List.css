@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.my-recipes {
+    padding-top: 40px;
+}
+
+section.section {
+    background-color: #C11B1B;
+}
+
+section.section:nth-child(even) {
+    background-color: #F6B312;
+}

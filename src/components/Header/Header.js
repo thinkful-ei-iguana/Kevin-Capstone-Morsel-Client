@@ -46,9 +46,12 @@ export default class Header extends Component {
     render() {
         return (
             <nav className='Header'>
-                <Link to='/'>
-                    <h1>Morsel</h1> 
-                </Link>
+                <div className='link-container'>
+                  <Link className='test-class'
+                    to='/'>
+                      <h1>Morsel</h1> 
+                  </Link>
+                </div>
                 <button
                   onClick={this.handleMenuClick}
                 >

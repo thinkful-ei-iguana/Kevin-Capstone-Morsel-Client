@@ -14,6 +14,7 @@ export default class Recipe extends Component {
        console.log(recipe)
 
        return(
+            <section>
                <div className='recipe'>
                    <h2>{recipe.title}</h2>
                    <p>Estimated prep time: {recipe.estimated_time}</p>
@@ -31,6 +32,7 @@ export default class Recipe extends Component {
                         <button>Edit Recipe</button>
                     </Link>
                </div>
+            </section>
        )
     }
 }
